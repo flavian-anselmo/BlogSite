@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>project</title>
+</head>
+<body>
+	<h1>Portfolio</h1>
+	{%for project in projects%}
+	<!--loop through the database and fetch the values form the database 
+	fetc the tittle of the project ,the description and a git hub link 
+	to the project using django templating engine 
+	-->
+	<div>
+		<p>
+			{{project.title}}
+		</p>
+		<p>
+			{{project.description}}
+		</p>
+		<p>
+			{{project.technology}}
+		</p>
+		<p>
+			{{project.githubLink}}
+		</p>
+	</div>
+	{%endfor%}
+
+
+</body>
+</html>
+

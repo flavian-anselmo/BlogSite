@@ -14,15 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from myblog import views
 from django.urls import include,path
 
 urlpatterns = [
-    path('myblog/',include('myblog.urls')),
+    #pattern to our portfolio app 
+    #the code aso includes all the urls in the portfolio app 
+    #hence they are accessed when prefixed portfolio/
+    path('portfolio/',include('portfolio.urls')),
     path('admin/', admin.site.urls),
     #path('',views.index,name='index')
 ]
 """
 this url is project based moves to the specific call in the app urls and
-hence calling the appropriate view method hence rendering a template 
+hence calling the appropriate view method hence rendering a template
+
+this acts as the table of content of the website since once we have many aplications 
+hence more urls for our case we have the portfolio app here  and the django admin app
+
+path('path/',include('appname.urls'))
+include include the app as a urls in the website 
 """

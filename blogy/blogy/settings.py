@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myblog',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ TEMPLATES = [
         'DIRS': [
             #path to where the html templates are located 
             #add the thwe whole path for django to locate the template 
-            os.path.join(BASE_DIR,'myblog/template/'),
+            os.path.join(BASE_DIR,'portfolio/template/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
