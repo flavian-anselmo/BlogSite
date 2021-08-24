@@ -24,9 +24,10 @@
 		<p>
 			{{project.technology}}
 		</p>
-		<p>
-			{{project.githubLink}}
-		</p>
+		<!--this is the button to the specified project as the per the primary key in the database -->
+		<a href={% url 'project_details' project.pk %}>
+			<input type="button" value="read more">
+		</a>
 	</div>
 	{%endfor%}
 

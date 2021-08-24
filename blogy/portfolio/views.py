@@ -23,7 +23,7 @@ def project(request):
 
 def project_details(request,pk):
 	#retrive as the primary key pk 
-	project=Project.objects.get(id=pk)
+	project=Project.objects.get(pk=pk)
 	"""[we perform another quesry on
 	this query retrieves the project with primary key indx 
 	we then assign that project to another context dictionary which we assign
@@ -32,9 +32,13 @@ def project_details(request,pk):
 	Returns:
 		[string]: [return all records in the db as per the primary key]
 	"""
+ 
+ 
+ 
 	context={
 		#name of the app and the var name for the DB records 
-		'portfolio':project
+		'project':project
 	}
 	#remder the template to the user 
+ 
 	return render(request,'details.html',context)

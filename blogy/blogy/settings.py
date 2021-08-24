@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #this is the location where we enter each web application for the  website 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

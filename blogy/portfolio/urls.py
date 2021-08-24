@@ -22,4 +22,7 @@ path('',views.nameOfTheViwe,name='nameofmethod')
  
  to get data as per the primary key use 
  path(<int:pk>/,)
+ <int:pk> notation tells django that the value passed is an intenger 
+ and that signifies the position of the project in the data base 
+ 
 """
