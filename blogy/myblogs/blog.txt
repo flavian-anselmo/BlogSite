@@ -1,0 +1,6 @@
+Building a fully functional blog app that will allow 
+me to perform the following tasks 
+create,update and delete blog posts 
+display posts to the user as either an index view or a detail view 
+assign categories to posts 
+Allow users to comment on posts 
