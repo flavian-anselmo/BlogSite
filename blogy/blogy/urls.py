@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django import urls
 from django.contrib import admin
 from django.urls import include,path
 
@@ -21,6 +22,7 @@ urlpatterns = [
     #the code aso includes all the urls in the portfolio app 
     #hence they are accessed when prefixed portfolio/
     path('portfolio/',include('portfolio.urls')),
+    path('myblogs/',include('myblogs.urls')),
     path('admin/', admin.site.urls),
     #path('',views.index,name='index')
 ]

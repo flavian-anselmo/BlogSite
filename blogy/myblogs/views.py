@@ -1,5 +1,6 @@
 from myblogs.models import Category, Post,Comment
 from django.shortcuts import render
+from .forms import CommentForm #import thr form 
 #this are functional views 
 def fetchAllBlogs(request):
     posts=Post.objects.all().order_by('-createdOn')
@@ -23,14 +24,42 @@ def fecthByCategory(request,category):
 
 
 def fetchByPrimarykey(request,pk):
-    post=Post.objects.get(pk=pk) 
+    post=Post.objects.get(pk=pk) #fetch data as per the primary key 
+    form =CommentForm(request.GET)#fetch an empty form and render it 
+    if request.method=='POST':
+        #create a comment instance 
+        form =CommentForm(request.POST)#validates the form and post what the user enters 
+        if form.is_valid():
+            #if the entries are good 
+            print(form.cleaned_data)
+            comment=Comment(
+                #a new instance of comment is created 
+                #this is the table in the data base 
+                #or our Comment model 
+                #fetching the fields of the tbl in db and cleaning them 
+                author=form.cleaned_data['author'],
+                comment=form.cleaned_data['comment'],
+                post=post
+            )
+            #save the comment that hase been ceated 
+            comment.save()
+        else:
+            #get the errors generated 
+            print(form.errors)    
+         
     comments=Comment.objects.filter(post=post) 
     context={
 		"post":post,
-		"comments":comments
+		"comments":comments,
+        "form":form,
   
 	}	  
+    #render the ui as per the  data provided in the dictionary 
     return render(request,"detail.html",context)
+
+
+
+
 
 # Create your views here.
 """
@@ -39,5 +68,10 @@ index.html to display the list of all the posts in my blog site
 detail.html to display the contents of the blog
 category.html to display posts as per the category specified
 
-use a - sign to specify the largest value since we want the most recent time     
+use a - sign to specify the largest value since we want the most recent time   
+
+
+widgets in django is a representation of an html input element
+the widget handles the rendering of the html and extraction of data
+    
 """
