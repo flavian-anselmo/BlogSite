@@ -22,12 +22,18 @@
 			<!--this will be the container of the projects -->
 			<div class="row justify-content-center">
 				<div class =col-sm-6>
-				
-					<small>
-						<h5 class="text-primary">{{post.title}}</h5>
-						<h5 class="text-success">created on {{post.createdOn}}</h5>
+					<!--fetch each blog asper the primary key -->
+					<h2><a href={% url 'fetchByPrimarykey' post.pk %}><h5 class="text-primary">{{post.title}}</h5></a></h2>
+					<small class="text-success">
+					created on {{post.createdOn}}|
+						
+						{% for category in post.categories.all %}
+						<!--fetchin the categories a blog belongs to -->
+						<a href={% url "fecthByCategory" category %}>{{category}}</a>
+						
+						{% endfor %}
 					</small>
-					<p>{{post.blog}}</p>
+					<p>{{post.blog | slice:":50"}}...</p>
 
 
 				</div>

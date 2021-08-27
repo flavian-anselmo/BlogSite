@@ -1,14 +1,21 @@
 from django.db import models
 class Category(models.Model):
-    catgoryName=models.CharField(max_length=100)
+    categoryName=models.CharField(max_length=100)
+    def __str__(self):
+        #helps in displaying the categories 
+        return self.categoryName
+  
     #category name of a specific blog 
+    
+    
+    
 class Post(models.Model):
     #this model represents the posts 
     title=models.CharField(max_length=100)
     blog=models.TextField()
     createdOn=models.DateTimeField(auto_now_add=True)
     lastModified=models.DateTimeField(auto_now=True)
-    categories=models.ManyToManyField('Category',related_name='posts')    
+    categories=models.ManyToManyField('Category',related_name='post')    
 
 class Comment(models.Model):
     #this represents users comments 

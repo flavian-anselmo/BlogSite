@@ -25,7 +25,7 @@ def fecthByCategory(request,category):
 
 def fetchByPrimarykey(request,pk):
     post=Post.objects.get(pk=pk) #fetch data as per the primary key 
-    form =CommentForm(request.GET)#fetch an empty form and render it 
+    form =CommentForm()#fetch an empty form and render it 
     if request.method=='POST':
         #create a comment instance 
         form =CommentForm(request.POST)#validates the form and post what the user enters 
@@ -55,7 +55,7 @@ def fetchByPrimarykey(request,pk):
   
 	}	  
     #render the ui as per the  data provided in the dictionary 
-    return render(request,"detail.html",context)
+    return render(request,"blogdetail.html",context)
 
 
 
