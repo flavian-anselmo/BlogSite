@@ -10,3 +10,6 @@ urlpatterns = [
 	
  
 ]
+"""this is like the tbl of content for the 
+web application since it will help in rendering the uis 
+"""

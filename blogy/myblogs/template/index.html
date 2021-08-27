@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>blogs</title>
+</head>
+<body>
+	{% extends 'base.html' %}
+	{% block page_content %}
+	<div>
+		<!--
+			holds the whole blog in place this will fetch the 
+			title of the blog and the blog iteself 
+		-->
+		<h1>My blogs</h1>
+		<hr>
+		{% for post in posts %}
+		<!--get all the posts in the database -->
+		
+		  
+		{% endfor %}
+
+	</div>
+	  
+	{% endblock page_content %}
+
+</body>
+</html>

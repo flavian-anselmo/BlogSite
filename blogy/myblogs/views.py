@@ -13,7 +13,7 @@ def fetchAllBlogs(request):
 
 def fecthByCategory(request,category):
     #pass a category in the function
-    posts=Post.objects.filter(categories__contains=category).order_by('-createdOn')
+    posts=Post.objects.filter(categories__categoryName__contains=category).order_by('-createdOn')
     #__contains to filter the categories 
     #order_by for ordering with the date they were created 
     context={
