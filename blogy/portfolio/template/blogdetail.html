@@ -4,19 +4,43 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>blog</title>
 </head>
 <body>
 	{% extends 'base.html' %}
 	{% block page_content %}
-	<div>
-		<div>
+	<h2>{{post.title}}</h2>
+	<hr>
+	<div class="container">
+		<div class="col justify-content-center">
+			<small class="text-success">
+			created on {{post.createdOn}}|		
+			{% for category in post.categories.all %}
+				<!--fetchin the categories a blog belongs to -->
+				<a href={% url "fecthByCategory" category.categoryName %}>{{category}}</a>
+						
+			{% endfor %}
 			
+		</small>
+		<p>{{post.blog|linebreaks}}</p>
+		<form action="" method="post">{% csrf_token %}
+			<!--this is the comment section for application -->
+			<div class="form-group">{{form.author}}</div>
+			<div class="form-group">{{form.body}}</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+		<h3>comments:</h3>
+		{% for comment  in comments  %}
+		<!--get the comments form the database 
+		get the author get the date created and the commnent itself 
+		-->
+		<p>
+			{{comment.author}}|{{comment.createdOn}}
+		</p>
+		<p>{{comment.comment}}</p>
+		{% endfor %}
 		</div>
 	</div>
-	  
 	{% endblock page_content %}
-
-	
 </body>
 </html>

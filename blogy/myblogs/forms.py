@@ -10,7 +10,9 @@ class CommentForm(forms.Form):
                            required=True,
                            widget=forms.TextInput(attrs={
 							   "class":"form-control",
-								"placeholder":"your name",			
+								"placeholder":"your name",	
+                "row":100,
+                "width":100,
           
 						   })
                            )

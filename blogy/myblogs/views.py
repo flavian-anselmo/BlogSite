@@ -40,13 +40,15 @@ def fetchByPrimarykey(request,pk):
                 #or our Comment model 
                 #fetching the fields of the tbl in db and cleaning them 
                 author=form.cleaned_data['author'],
-                comment=form.cleaned_data['comment'],
+                comment=form.cleaned_data['body'],
                 post=post
             )
             #save the comment that hase been ceated 
             comment.save()
+            print('saved')
         else:
             #get the errors generated 
+            print('not ok ')
             print(form.errors)    
          
     comments=Comment.objects.filter(post=post) 

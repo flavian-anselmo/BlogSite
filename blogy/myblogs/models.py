@@ -15,8 +15,8 @@ class Post(models.Model):
     blog=models.TextField()
     createdOn=models.DateTimeField(auto_now_add=True)
     lastModified=models.DateTimeField(auto_now=True)
-    categories=models.ManyToManyField('Category',related_name='post')    
-
+    categories=models.ManyToManyField('Category',related_name='post')  
+   
 class Comment(models.Model):
     #this represents users comments 
     author=models.CharField(max_length=100)
