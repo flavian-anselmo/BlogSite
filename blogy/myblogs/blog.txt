@@ -4,3 +4,28 @@ create,update and delete blog posts
 display posts to the user as either an index view or a detail view 
 assign categories to posts 
 Allow users to comment on posts 
+
+
+
+doing django authorization and restrict what users 
+can see and do in your view based on their roles 
+Allowing users to login to your website solves twoproblems 
+authentication and authorization 
+
+Authorization is the act of verifying a users identity 
+and confirming they arewho they claim they are 
+DEciding if a user is allowed to perform a specific action 
+
+Django provides tools for both authentication and authorization
+Django view authorization is typically done with decorators 
+
+#check list 
+{
+	--use HttpRequest and HttpRequest,user objects 
+	--Authenticate and authorize users 
+	--diff btwn  regular staff and admin 
+	--restrict a view to diffrent roles with the @user_passes_test
+	--secure a view with the @login_required
+	--use message framwork to notify users 
+
+}
