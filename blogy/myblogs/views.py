@@ -1,5 +1,6 @@
 from myblogs.models import Category, Post,Comment
 from django.shortcuts import render
+from django.http import HttpResponse, request#import thr httpresposnse 
 from .forms import CommentForm #import thr form 
 #this are functional views 
 def fetchAllBlogs(request):
@@ -61,7 +62,16 @@ def fetchByPrimarykey(request,pk):
     #render the ui as per the  data provided in the dictionary 
     return render(request,"blogdetail.html",context)
 
-
+def see_requests(self):
+    text=f"""
+    some text attributes of the httprequest object::
+    scheme:{request.scheme}
+    path:{request.path}
+    method{request.method}
+    GET:{request.GET}
+    user:{request.user}
+    """
+    return HttpResponse(text,content_type="text/plain")
 
 
 

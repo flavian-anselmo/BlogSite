@@ -29,3 +29,10 @@ Django view authorization is typically done with decorators
 	--use message framwork to notify users 
 
 }
+
+#detecting logged in users and their roles inn the view 
+{
+	Every django view tales atleast one argument an httpRequest 
+	the request contanins a state of information  about the user 
+	and the page they are visisting 
+}
