@@ -4,8 +4,11 @@ class PostAdmin(admin.ModelAdmin):
     pass
 class CategoryAdmin(admin.ModelAdmin):
     pass
+
+#this is how you register the models to the admin portal 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post,PostAdmin)
+
 
 # Register your models here.
 """
@@ -15,5 +18,11 @@ class instances can be created usng django admiin
  belongs 
  import mmodels you want to register to the django admin 
  
- comments are for the endusers to input  
+ comments are for the endusers to input 
+ 
+ there is also a decorator for registering your modelAdmin
+ @admin.register(Post)
+ class post(author) :
+    pass 
+it gives onr or more model classes to register with ModelAdmin    
 """
